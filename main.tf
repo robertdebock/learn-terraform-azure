@@ -102,3 +102,28 @@ data "azurerm_public_ip" "ip" {
   resource_group_name = azurerm_virtual_machine.vm.resource_group_name
   depends_on          = [azurerm_virtual_machine.vm]
 }
+
+resource "checkly_check" "example-check" {
+  name                      = "Example check"
+  type                      = "API"
+  activated                 = true
+  should_fail               = false
+  frequency                 = 1
+  double_check              = true
+  ssl_check                 = true
+  use_global_alert_settings = true
+
+  locations = [
+    "us-west-1"
+  ]
+
+  request {
+    url              = "https://${azurerm_public_ip.publicip.ip_address}/"
+    follow_redirects = true
+    assertion {
+      source     = "STATUS_CODE"
+      comparison = "EQUALS"
+      target     = "200"
+    }
+  }
+}
