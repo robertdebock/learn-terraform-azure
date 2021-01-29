@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "rf-robertdebock-sbx"
+  name     = "rg-robertdebock-sbx"
   location = var.location
   tags     = var.tags
 }
