@@ -1,0 +1,2 @@
+Host ${ip}
+  User ${username}
