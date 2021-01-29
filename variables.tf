@@ -14,12 +14,6 @@ variable "location" {
   description = "The location where the resources are applied."
 }
 
-variable "prefix" {
-  type        = string
-  default     = "my"
-  description = "Some characters used to prefix resources."
-}
-
 variable "tags" {
   type = map
 
