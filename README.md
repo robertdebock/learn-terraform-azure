@@ -1,9 +1,12 @@
-# Learn Terraform Azure
+# Learn Terraform Azure TERRAGRUNT
 
 Here is a repository for educational purposes.
 
+Both `applicationX` and `applicationY` are configured for terragrunt.
+
 ```shell
-terraform init
-terraform plan
-terraform apply
+cd applicationX
+terragrunt plan
+terragrunt apply
+terragrunt destroy
 ```
