@@ -1,3 +1,7 @@
+variable "project_name" {
+  description = "The name of the project, for example 'my'."
+}
+
 variable "admin_username" {
     type = string
     description = "Administrator user name for virtual machine"
@@ -28,4 +32,8 @@ variable "sku" {
     westeurope   = "16.04-LTS"
     northeurope  = "18.04-LTS"
   }
+}
+
+variable "backend_count" {
+  default = 2
 }
