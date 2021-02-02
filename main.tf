@@ -90,6 +90,7 @@ resource "azurerm_virtual_machine" "vm" {
     computer_name  = "myTFVM-robert"
     admin_username = var.admin_username
     admin_password = var.admin_password
+    custom_data    = file("cloud-init.yml")
   }
 
   os_profile_linux_config {
