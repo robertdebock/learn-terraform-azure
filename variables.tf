@@ -10,17 +10,11 @@ variable "admin_password" {
 
 variable "location" {
   type        = string
-  default     = "westeurope"
   description = "The location where the resources are applied."
 }
 
 variable "tags" {
   type = map
-  default = {
-    Environment = "Terraform GS"
-    Dept        = "Engineering"
-    iets        =  "anders"
-  }
 }
 
 variable "sku" {
@@ -42,6 +36,5 @@ variable "vm_size" {
 
 variable "size" {
   type    = string
-  default = "small"
   description = "Please pick a size: small, medium or large."
 }
