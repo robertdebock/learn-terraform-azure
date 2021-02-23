@@ -1,4 +1,4 @@
-# Add a resource group.
+# Add a resource group..
 resource "azurerm_resource_group" "rg" {
   name     = "rg-robertdebock-sbx"
   location = var.location
