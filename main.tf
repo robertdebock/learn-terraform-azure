@@ -1,8 +1,8 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "rg-robertdeboer-sbx"
+  name     = "rg-robertdebock-sbx"
   location = "westeurope"
   tags     = {
-    costcenter   = "infra"
+    costcenter   = "infrastructuur"
     solution     = "terraform opleiding"
     owner        = "Robert de Bock"
     environment  = "sbx"
