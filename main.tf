@@ -23,7 +23,6 @@ resource "azurerm_subnet" "subnet" {
 
 # Create public IP
 resource "azurerm_public_ip" "publicip" {
-  # count               = 10
   name                = "myTFPublicIP-robert"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
