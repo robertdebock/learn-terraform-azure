@@ -1,10 +1,7 @@
 resource "azurerm_resource_group" "rg" {
   name     = "rg-robertdebock-sbx"
   location = var.location
-  tags = {
-    Environment = "Terraform Getting Started"
-    Team = "DevOps"
-  }
+  tags     = var.tags
 }
 
 # Create a virtual network.
@@ -25,6 +22,7 @@ resource "azurerm_subnet" "subnet" {
 
 # Create public IP
 resource "azurerm_public_ip" "publicip" {
+  # count               = 10
   name                = "myTFPublicIP-robert"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -70,7 +68,7 @@ resource "azurerm_virtual_machine" "vm" {
   location              = var.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]
-  vm_size               = "Standard_DS1_v2"
+  vm_size               = var.vm_size[var.size]
 
   storage_os_disk {
     name              = "myOsDisk-robert"
@@ -97,7 +95,7 @@ resource "azurerm_virtual_machine" "vm" {
   }
 }
 
-data "azurerm_public_ip" "ip" {
+data "azurerm_public_ip" "publicip" {
   name                = azurerm_public_ip.publicip.name
   resource_group_name = azurerm_virtual_machine.vm.resource_group_name
   depends_on          = [azurerm_virtual_machine.vm]
