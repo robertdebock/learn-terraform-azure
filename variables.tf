@@ -1,15 +1,16 @@
 variable "admin_username" {
     type = string
-    description = "Administrator user name for virtual machine"
+    description = "Administrator user name for virtual machine."
 }
 
 variable "admin_password" {
     type = string
-    description = "Password must meet Azure complexity requirements"
+    description = "Password must meet Azure complexity requirements."
 }
 
 variable "location" {
   type        = string
+  default     = "westeurope"
   description = "The location where the resources are applied."
 }
 

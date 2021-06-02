@@ -80,7 +80,7 @@ resource "azurerm_virtual_machine" "vm" {
   storage_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = lookup(var.sku, var.location)
+    sku       = "18.04-LTS"
     version   = "latest"
   }
 
