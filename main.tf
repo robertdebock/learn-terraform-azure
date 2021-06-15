@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "rg" {
     solution     = "terraform opleiding"
     owner        = "Robert de Bock"
     environment  = "sbx"
-    creationdate = "9/02/2021"
+    creationdate = "15/06/2021"
     creator      = "Robert de Bock"
   }
 }
