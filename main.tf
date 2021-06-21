@@ -72,6 +72,7 @@ resource "azurerm_virtual_machine" "vm" {
   network_interface_ids = [azurerm_network_interface.nic.id]
   vm_size               = "Standard_DS1_v2"
 
+
   storage_os_disk {
     name              = "myOsDisk-robert"
     caching           = "ReadWrite"
@@ -90,6 +91,7 @@ resource "azurerm_virtual_machine" "vm" {
     computer_name  = "myTFVM-robert"
     admin_username = var.admin_username
     admin_password = var.admin_password
+    custom_data    = file("cloud-init.yml")
   }
 
   os_profile_linux_config {
@@ -114,11 +116,12 @@ resource "checkly_check" "example-check" {
   use_global_alert_settings = true
 
   locations = [
-    "us-west-1"
+    "us-west-1",
+    "eu-central-1"
   ]
 
   request {
-    url              = "https://${azurerm_public_ip.publicip.ip_address}/"
+    url              = "http://${azurerm_public_ip.publicip.ip_address}/"
     follow_redirects = true
     assertion {
       source     = "STATUS_CODE"
